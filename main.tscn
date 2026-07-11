@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dds40bct6aga"]
+
+[ext_resource type="PackedScene" uid="uid://4gc4x0y4p56o" path="res://1x_1_cube.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://41u2r4laaa5i" path="res://cab.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://dklmvg0s0ltb4" path="res://Scripts/orbit_camera.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://sos3rpdphciq" path="res://Scripts/builder.gd" id="3_h2yge"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_txq2d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txq2d"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="Environment" id="Environment_pbta0"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sman0"]
+
+[sub_resource type="Compositor" id="Compositor_gf4tr"]
+
+[node name="Node3D" type="Node3D" unique_id=93528173]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1561996738]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1314771783]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_txq2d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1742826096]
+shape = SubResource("BoxShape3D_txq2d")
+
+[node name="1x1_cube" parent="." unique_id=1400971632 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4169288, 1.0136769, 0)
+
+[node name="1x1_cube2" parent="." unique_id=834966384 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15096855, 1.0136769, -2.472916)
+
+[node name="1x1_cube3" parent="." unique_id=682327918 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3618565, 1.0136769, 2.1772964)
+
+[node name="1x1_cube4" parent="." unique_id=2121036866 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1798348, 1.0136768, 0.1265328)
+
+[node name="1x1_cube5" parent="." unique_id=12179514 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1072345, 1.0136768, -2.02963)
+
+[node name="cab" parent="." unique_id=1046875124 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1989788362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("3_1bvp3")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1281827142]
+
+[node name="Builder" type="Node3D" parent="." unique_id=582703663 node_paths=PackedStringArray("camera", "anchor")]
+script = ExtResource("3_h2yge")
+camera = NodePath("../CameraRig/Camera3D")
+anchor = NodePath("../cab")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=371835860]
+transform = Transform3D(0.59263825, -0.43494472, 0.67794025, -0.34858885, 0.62027085, 0.70267344, -0.72613066, -0.6527536, 0.21597937, 4.5432634, 7.511226, 0.11855054)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1086890115]
+environment = SubResource("Environment_pbta0")
+camera_attributes = SubResource("CameraAttributesPractical_sman0")
+compositor = SubResource("Compositor_gf4tr")
