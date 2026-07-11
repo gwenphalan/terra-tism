@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dds40bct6aga"]
 
-[ext_resource type="PackedScene" uid="uid://4gc4x0y4p56o" path="res://1x_1_cube.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://41u2r4laaa5i" path="res://cab.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://4gc4x0y4p56o" path="res://Scenes/part_1x1.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://41u2r4laaa5i" path="res://Scenes/cab.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://dklmvg0s0ltb4" path="res://Scripts/orbit_camera.gd" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://sos3rpdphciq" path="res://Scripts/builder.gd" id="3_h2yge"]
 
